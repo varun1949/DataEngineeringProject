@@ -154,8 +154,6 @@
 						{
 							"name": "Delete1",
 							"type": "Delete",
-							"state": "Inactive",
-							"onInactiveMarkAs": "Succeeded",
 							"dependsOn": [],
 							"policy": {
 								"timeout": "0.12:00:00",
@@ -170,9 +168,15 @@
 									"referenceName": "Parquet_dynamic",
 									"type": "DatasetReference",
 									"parameters": {
-										"container": "ads",
-										"folder": "sad",
-										"file": "asdad"
+										"container": "bronze",
+										"folder": {
+											"value": "@pipeline().parameters.table",
+											"type": "Expression"
+										},
+										"file": {
+											"value": "@concat(pipeline().parameters.table,'_',variables('current'))",
+											"type": "Expression"
+										}
 									}
 								},
 								"enableLogging": false,
