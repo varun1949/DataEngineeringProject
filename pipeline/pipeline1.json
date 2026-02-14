@@ -170,14 +170,9 @@
 									"referenceName": "Parquet_dynamic",
 									"type": "DatasetReference",
 									"parameters": {
-										"folder": {
-											"value": "@pipeline().parameters.table",
-											"type": "Expression"
-										},
-										"file": {
-											"value": "@concat(pipeline().parameters.table,'_',variables('current'))",
-											"type": "Expression"
-										}
+										"container": "ads",
+										"folder": "sad",
+										"file": "asdad"
 									}
 								},
 								"enableLogging": false,
